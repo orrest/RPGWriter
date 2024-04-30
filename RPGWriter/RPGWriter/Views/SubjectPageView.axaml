@@ -9,19 +9,11 @@
     d:DesignWidth="800"
     x:DataType="vm:SubjectPageViewModel"
     mc:Ignorable="d">
-    <StackPanel VerticalAlignment="Center" Spacing="5">
-        <TextBlock
-            VerticalAlignment="Center"
-            FontSize="16"
-            FontWeight="SemiBold"
-            Text="{Binding Title}"
-            TextAlignment="Center"
-            TextWrapping="Wrap" />
-        <TextBlock
-            VerticalAlignment="Center"
-            FontSize="16"
-            Text="{Binding Message}"
-            TextAlignment="Center"
-            TextWrapping="Wrap" />
-    </StackPanel>
+    <Grid VerticalAlignment="Center">
+        <TextBox
+            Margin="10"
+            BorderThickness="1"
+            Text="{Binding Subject}"
+            Watermark="一句话描述主题..." />
+    </Grid>
 </UserControl>

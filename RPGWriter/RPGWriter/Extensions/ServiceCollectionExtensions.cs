@@ -19,7 +19,7 @@ namespace RPGWriter.Extensions
 
         private static void AddViewModels(this IServiceCollection collection)
         {
-            collection.AddTransient<MainViewModel>();
+            collection.AddSingleton<MainViewModel>();
         }
     }
 }
