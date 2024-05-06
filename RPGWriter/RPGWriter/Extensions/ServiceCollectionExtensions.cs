@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using RPGWriter.Services;
 using RPGWriter.ViewModels;
 
 namespace RPGWriter.Extensions
@@ -13,8 +14,7 @@ namespace RPGWriter.Extensions
 
         private static void AddCommonServices(this IServiceCollection collection)
         {
-            //collection.AddSingleton<IRepository, Repository>();
-            //collection.AddTransient<BusinessService>();
+            collection.AddSingleton<UnitOfWork, UnitOfWork>();
         }
 
         private static void AddViewModels(this IServiceCollection collection)

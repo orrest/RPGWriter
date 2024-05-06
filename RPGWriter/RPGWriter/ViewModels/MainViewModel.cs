@@ -1,4 +1,5 @@
 ﻿using ReactiveUI;
+using RPGWriter.Services;
 using System.Collections.ObjectModel;
 
 namespace RPGWriter.ViewModels
@@ -13,13 +14,14 @@ namespace RPGWriter.ViewModels
         private StoryPageViewModel story;
         private RolePageViewModel role;
         private WorldPageViewModel world;
+        private readonly UnitOfWork unitOfWork;
 
-        public MainViewModel()
+        public MainViewModel(UnitOfWork unitOfWork)
         {
             Topics = new ObservableCollection<ItemViewModel>()
             {
                 new("主题", () => {
-                    subject ??= new SubjectPageViewModel();
+                    subject ??= new SubjectPageViewModel(unitOfWork);
                     CurrentPage = subject;
                 }),
                 new("故事", () => { 
@@ -37,6 +39,8 @@ namespace RPGWriter.ViewModels
             };
 
             Topics[0].Command.Execute(null);
+
+            this.unitOfWork = unitOfWork;
         }
 
         public PageViewModelBase CurrentPage
